@@ -12,10 +12,8 @@
 <body>
     <div id="root">
         
-        <div>今天天气很{{ishot}}</div>
-        <button v-on:click="change()" v-bind="hot">  change the weather
-
-        </button>
+        <button v-on:click="change()">click</button>
+        <div>today's weather is {{info}}</div>
 
       
     </div>
@@ -26,20 +24,26 @@
             el:'#root',
             data:{
                 ishot:true
-                
             },
          
-        methods:{
+            methods:{
             change(){
-                return hot='re'
+              this.ishot = !this.ishot
+                
+            }},
+
+            computed:{
+                info(){
+                    return this.ishot ? 'hot' : 'cool'
+                }
             }
                 
 
                 
 
-            }
+            })
         
-        })
+        
 
     </script>
 
