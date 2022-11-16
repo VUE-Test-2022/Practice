@@ -1,54 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/vue@2"></script>
-    
-    
 </head>
 <body>
     <div id="root">
-        
         <button v-on:click="change()">click</button>
         <div>today's weather is {{info}}</div>
-
-      
     </div>
-
     <script>
         Vue.config.productionTip = false;
         const vm = new Vue({
-            el:'#root',
-            data:{
-                ishot:true
+            el: '#root',
+            data: {
+                ishot: true
             },
-         
-            methods:{
-            change(){
-              this.ishot = !this.ishot
-                
-            }},
+            methods: {
+                change() {
+                    this.ishot = !this.ishot
 
-            computed:{
-                info(){
+                }
+            },
+            computed: {
+                info() {
                     return this.ishot ? 'hot' : 'cool'
                 }
             }
-                
-
-                
-
-            })
-        
-        
-
+        })
     </script>
-
-
-    
-    
 </body>
 </html>

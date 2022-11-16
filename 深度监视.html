@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2> today's weather is {{info}}</h2>
+        <button v-on:click="change()">
+            click
+        </button> 
+        <hr/>
+
+        <button v-on:click="numbers.a++">
+            numbers change
+        </button>
+        {{numbers.a}}
+    </div>
+</body>
+<script>
+    const vm = new Vue(
+        {
+            el: '#root',
+            data: {
+                ishot: true,
+                numbers:{
+                    a:1,
+                    b:1
+
+                }
+            },
+            methods: {
+                change() {
+                    this.ishot = !this.ishot
+                }
+            },
+            computed: {
+                info() {
+                    return this.ishot ? 'cool' : 'warm'
+                }},
+             watch:{
+                    'ishot':{
+                        immediate:true,//初始化时让handler调用一下
+                        handler(newValue,oldValue){
+                            console.log('beixiugai',newValue,oldValue)
+                        }
+                    },
+                    'numbers':{ 
+                        deep:true,
+                        //默认是false，无法识别到numbers里a的变化。
+                        handler(){
+                            console.log('a变化了')
+                        }
+                    }
+            }
+        })
+   
+</script>
+</html>
