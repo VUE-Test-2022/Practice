@@ -8,18 +8,14 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@2"></script>
 </head>
-
 <body>
     <div id="root">
-        <h2> today's weather is {{info}}</h2>
-        <button v-on:click="change()">
-            click
-        </button>
+        <button v-on:click="change()">click</button>
+        <div>today's weather is {{info}}</div>
     </div>
-</body>
-<script>
-    const vm = new Vue(
-        {
+    <script>
+        Vue.config.productionTip = false;
+        const vm = new Vue({
             el: '#root',
             data: {
                 ishot: true
@@ -27,25 +23,15 @@
             methods: {
                 change() {
                     this.ishot = !this.ishot
+
                 }
             },
             computed: {
                 info() {
-                    return this.ishot ? 'cool' : 'warm'
-                }}
-                // watch:{
-                //     'ishot':{
-                    // immediate:true, 初始化让handler调用
-                //         handler(newValue,oldValue){
-                //             console.log('beixiugai',newValue,oldValue)
-                //         }
-                //     },
+                    return this.ishot ? 'hot' : 'cool'
+                }
             }
-        )
-    vm.$watch('ishot', {
-        handler(oldvalue, newvalue) {
-            console.log(oldvalue.newvalue, 'ishot被修改了')
-        }
-    })
-</script>
+        })
+    </script>
+</body>
 </html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+    <div id="root">
+        <h2> 当前n的值是{{n}}</h2>
+        <button v-on:click="n++">点我n+1</button>
+        <!-- <h2 v-if="n===2"> angular </h2>
+        <h2 v-else-if="n===4"> react</h2>
+        <h2 v-else-if="n===5">vue</h2> -->
+        <h2 v-show="n===2"> angular </h2>
+        <h2 v-show="n===4"> react</h2>
+        <h2 v-show="n===5">vue</h2>
+        <!-- 频率高，v-show， 频率低，v-if -->
+
+    </div>
+</body>
+
+<script>
+  new Vue({
+    el:'#root',
+    data:{
+        n:0
+    }
+  })
+
+  //v-if v-else-if v-else-if v-else要连续在一起使用
+ 
+
+</script>
+</html>

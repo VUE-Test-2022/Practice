@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表渲染</title>
+    <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+<div id="root">
+    <h2>列表渲染</h2>
+<ul>
+    <!-- <li v-for="p in persons" :key="p.id">{{p.name}}</li> -->
+    <!-- <li v-for="(p,index) in persons" :key="index">{{p.id}}-{{p.name}}--{{index}}</li> -->
+   
+    <!-- key让每一个li有唯一的标识-->
+    <!-- v-for里面 可以用 in/or p of persons-->
+    <li v-for="(a,b,c) in persons" :key="index">{{a}}-{{b}}--{{c}}</li>
+    <!-- 遍历字符串，遍历数组，遍历对象 -->
+
+</div>    
+</body>
+<script>
+    const vm = new Vue({
+        el:'#root',
+        data:{
+           persons:[
+            {id:'001',name:'zhang',age:18},
+            {id:'003',name:'chen',age:55},
+            {id:'005',name:'liu',age:8}
+           ] 
+        }
+
+    })
+
+
+</script>
+</html>
